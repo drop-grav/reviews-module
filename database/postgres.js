@@ -54,5 +54,3 @@ FROM reviewRecords INNER JOIN users on reviewRecords.custId = users.id
 INNER JOIN rooms on reviewRecords.roomId =rooms.id ORDER BY reviewRecords.id;`)
 .then(res => console.log("joined table created!"))
 .catch((err) => console.log(err))
-
-module.exports = client;

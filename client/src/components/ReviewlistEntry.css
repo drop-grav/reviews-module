@@ -1,0 +1,43 @@
+.oneReview {
+  border-bottom: 1px solid rgb(214, 214, 214);
+}
+.profile {
+  display: flex;
+  margin-top: 24px;
+}
+
+.profilePic {
+  border-radius: 50%;
+  height: 48px;
+  position: relative;
+  display: flex;
+
+}
+
+.nameAndDate {
+  margin-left: 16px;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.custName {
+  color: rgb(72,72,72);
+  font-size: 16px;
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+  font-weight: 500;
+}
+
+.custDate {
+  margin-top: 5px;
+  color: rgb(72,72,72);
+  font-size: 14px;
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+}
+
+.custReview {
+  color: rgb(72,72,72);
+  font-size: 16px;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-weight: 250;
+  margin-bottom: 24px;
+}

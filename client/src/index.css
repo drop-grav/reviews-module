@@ -1,0 +1,47 @@
+.component {
+  width: 648px;
+}
+
+.overallAndSearch {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgb(214, 214, 214);
+  border-bottom: 1px solid rgb(214,214,214);
+}
+
+.searchResult {
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  color: rgb(72,72,72);
+  margin-top: 16px;
+  border-bottom: 1px solid rgb(214,214,214);
+  margin-bottom: 16px;
+}
+
+.term {
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  color: rgb(72,72,72);
+  font-weight:600;
+  margin-bottom: 16px;
+}
+
+.button {
+  background: none;
+  border: none;
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  color: #008489;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+.button:hover {
+  background: none;
+  border: none;
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  color: #008489;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 16px;
+}

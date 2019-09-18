@@ -27,10 +27,10 @@ Reviews module
 - npm run postgres
 - npm run cassandra
 ## RESTful CRUD API Routes
-- Create / POST - create a new review to database: /api/rooms/:id/reviews/:id
+- Create / POST - create a new review to database: /api/rooms/:roomId/reviews/
 
-- Read / GET - read the reviews from the given restaurant: /api/rooms/:id/reviews
+- Read / GET - read the reviews from the given restaurant: /api/rooms/:roomId/reviews
 
-- Update / PUT - update an review in database: /api/rooms/:id/reviews/:id
+- Update / PUT - update an review in database: /api/rooms/:roomId/reviews/:reviewId
 
-- Delete / DELETE - delete an review in database: /api/rooms/:id/reviews/:id
+- Delete / DELETE - delete an review in database: /api/rooms/:roomId/reviews/:reviewId

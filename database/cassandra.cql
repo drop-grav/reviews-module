@@ -5,7 +5,7 @@ AND durable_writes = 'true';
 
 DROP TABLE IF EXISTS reviews.review;
 CREATE TABLE reviews.review (
-  reviewId int,
+  uid uuid,
   roomId int,
   custId int,
   custName varchar,
@@ -23,11 +23,11 @@ CREATE TABLE reviews.review (
   hostDate timestamp,
   hostUrl varchar,
   hostResponse varchar,
-  PRIMARY KEY(reviewId, custDate)
+  PRIMARY KEY(roomId, uid)
 );
 
 COPY reviews.review(
-  reviewId,
+  uid,
   roomId,
   custId,
   custName,

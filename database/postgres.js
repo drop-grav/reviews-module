@@ -58,6 +58,11 @@ client
       client.query(`CREATE INDEX room_index ON reviews_join (roomId)`)
       .then(res => console.log("index for room id in reviews_join table created"))
       .catch((err) => console.log(err))
+      .then(
+        client.query(`CREATE INDEX uid_index ON reviews_join (uid)`)
+        .then(res => console.log("index for uid in reviews_join table created"))
+        .catch((err) => console.log(err))
+      )
     )
   )
 

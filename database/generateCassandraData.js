@@ -15,5 +15,5 @@ client.connect()
 client
 .query(`COPY reviews_join
 TO '/mnt/c/Users/chenw/Desktop/reviews-module/database/reviews_join.csv' DELIMITER ',' CSV;`)
-.then(res => console.log("review_join.csv created!"))
+.then(res => console.log("reviews_join.csv created!"))
 .catch((err) => console.log(err))

@@ -1,9 +1,9 @@
 const faker = require('faker');
 const fs = require('fs');
 const uuidv4 = require('uuid/v4')
-const numOfReviews = 500;
-const numOfRooms = 100;
-const numOfUsers = 300;
+const numOfReviews = 50000000;
+const numOfRooms = 10000000;
+const numOfUsers = 30000000;
 function generateReviews() {
   let reviews;
   let custId = Math.ceil(Math.random() * numOfUsers);

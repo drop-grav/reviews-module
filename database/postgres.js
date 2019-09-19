@@ -61,6 +61,21 @@ client
         client.query(`CREATE INDEX uid_index ON reviews_join (uid)`)
         .then(res => console.log("index for uid in reviews_join table created"))
         .catch((err) => console.log(err))
+        .then(
+          client.query(`ALTER TABLE public.reviews_join ADD FOREIGN KEY(roomID) REFERENCES public.rooms(id);`)
+          .then(res => console.log("foreign key roomId created"))
+          .catch((err) => console.log(err))
+          .then(
+            client.query(`ALTER TABLE public.reviews_join ADD FOREIGN KEY(custID) REFERENCES public.users(id);`)
+            .then(res => console.log("foreign key custId created"))
+            .catch((err) => console.log(err))
+            .then(
+              client.query(`DROP TABLE reviewRecords;`)
+              .then(res => console.log("foreign key custId created"))
+              .catch((err) => console.log(err))
+            )
+          )
+        )
       )
     )
   )

@@ -12,19 +12,19 @@ client.connect()
 
 client
   .query(`COPY rooms 
-    FROM '~/reviews-module/database/rooms.csv' DELIMITER ',' CSV;`)
+    FROM '/home/ec2-user/reviews-module/database/rooms.csv' DELIMITER ',' CSV;`)
   .then(res => console.log("table rooms created!"))
   .catch((err) => console.log(err))
 
 client
   .query(`COPY users 
-    FROM '~/reviews-module/database/users.csv' DELIMITER ',' CSV;`)
+    FROM '/home/ec2-user/reviews-module/database/users.csv' DELIMITER ',' CSV;`)
   .then(res => console.log("table users created!"))
   .catch((err) => console.log(err))
 
 // client
 //   .query(`COPY reviewRecords
-//     FROM '~/reviews-module/database/reviewRecords.csv' DELIMITER ',' CSV;`)
+//     FROM '/home/ec2-user/reviews-module/database/reviewRecords.csv' DELIMITER ',' CSV;`)
 //   .then(res => console.log("table reviewRecords created!"))
 //   .catch((err) => console.log(err))
 //   .then(

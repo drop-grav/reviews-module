@@ -1,3 +1,4 @@
+const newRelic = require('newrelic');
 const express = require('express');
 const app = express();
 const _ = require('underscore');

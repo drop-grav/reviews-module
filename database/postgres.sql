@@ -1,5 +1,5 @@
 CREATE TABLE rooms (
-  i d INT NOT NULL PRIMARY KEY,
+  id INT NOT NULL PRIMARY KEY,
   hostName VARCHAR(25),
   hostUrl VARCHAR(288)
 );

@@ -1,9 +1,9 @@
 config:
-  target: 'http://localhost:3000/api/rooms/1/reviews'
+  target: 'http://localhost:3000'
   phases:
-    - duration: 10
-      arrivalRate: 20
+    - duration: 60
+      arrivalRate: 100
 scenarios:
   - flow:
     - get:
-        url: "/"
+        url: "/api/rooms/{{$randomNumber(0, 1000000)}}/reviews"

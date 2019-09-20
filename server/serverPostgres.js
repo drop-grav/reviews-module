@@ -12,7 +12,6 @@ const pool = new Pool({
   database: "reviews"
 })
 const bodyParser = require('body-parser');
-const uuidv4 = require('uuid');
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
@@ -33,7 +32,7 @@ app.get('/api/rooms/:roomId/reviews', (req, res) => {
 });
 
 app.post('/api/rooms/:roomId/reviews', (req, res) => {
-  const dataToAdd = `'${uuidv4()}',` + Object.values(req.body).map(val =>{
+  const dataToAdd = Object.values(req.body).map(val =>{
     if (typeof val === 'number'){
       return `${val}`;
     }else if(typeof val === 'string'){
@@ -61,7 +60,7 @@ app.put('/api/rooms/:roomId/reviews/:reviewId', (req, res) => {
     }
   }).join(',');
   pool.query(`UPDATE reviews_join SET ${queryText} 
-  WHERE uid = '${req.params.reviewId}';
+  WHERE id = '${req.params.reviewId}';
   `, (err, result)=>{
     if (err){
       res.status(400).send(err);
@@ -72,7 +71,7 @@ app.put('/api/rooms/:roomId/reviews/:reviewId', (req, res) => {
 });
 
 app.delete('/api/rooms/:roomId/reviews/:reviewId', (req, res) => {
-  pool.query(`DELETE FROM reviews_join WHERE uid = '${req.params.reviewId}'`, (err, result)=>{
+  pool.query(`DELETE FROM reviews_join WHERE id = '${req.params.reviewId}'`, (err, result)=>{
     if (err){
       res.status(400).send(err);
     }else{

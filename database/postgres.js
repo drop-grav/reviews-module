@@ -31,7 +31,7 @@ client
     client
     .query(`CREATE TABLE reviews_join 
       AS SELECT 
-      reviewRecords.uid,
+      reviewRecords.id,
       reviewRecords.roomId,
       reviewRecords.custId,
       users.custName,
@@ -60,8 +60,8 @@ client
 //   .then(res => console.log("index for room id in reviews_join table created"))
 //   .catch((err) => console.log(err))
 //   .then(
-//     client.query(`CREATE INDEX uid_index ON reviews_join (uid)`)
-//     .then(res => console.log("index for uid in reviews_join table created"))
+//     client.query(`CREATE INDEX id_index ON reviews_join (id)`)
+//     .then(res => console.log("index for id in reviews_join table created"))
 //     .catch((err) => console.log(err))
 //     .then(
 //       client.query(`ALTER TABLE public.reviews_join ADD FOREIGN KEY(roomID) REFERENCES public.rooms(id);`)

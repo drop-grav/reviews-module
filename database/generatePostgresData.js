@@ -1,6 +1,5 @@
 const faker = require('faker');
 const fs = require('fs');
-const uuidv4 = require('uuid/v4')
 const numOfReviews = 50000000;
 const numOfRooms = 10000000;
 const numOfUsers = 30000000;
@@ -60,7 +59,7 @@ const fileGenerator = async (filePath, num, iterator) => {
 }
 
 const reviewRecord = (num) => {
-  return `${uuidv4()},${generateReviews().join(',')}\n`;
+  return `${num},${generateReviews().join(',')}\n`;
 }
 
 const roomRecord = (num) => {

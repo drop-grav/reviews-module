@@ -11,7 +11,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE reviewRecords (
-  uid VARCHAR(50) PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   roomId INT NOT NULL,
   custId INT NOT NULL,
   custDate TIMESTAMP,

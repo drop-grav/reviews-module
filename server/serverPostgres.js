@@ -12,7 +12,6 @@ const pool = new Pool({
   database: "reviews"
 })
 const bodyParser = require('body-parser');
-const uuidv4 = require('uuid');
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
@@ -33,7 +32,7 @@ app.get('/api/rooms/:roomId/reviews', (req, res) => {
 });
 
 app.post('/api/rooms/:roomId/reviews', (req, res) => {
-  const dataToAdd = `'${uuidv4()}',` + Object.values(req.body).map(val =>{
+  const dataToAdd = Object.values(req.body).map(val =>{
     if (typeof val === 'number'){
       return `${val}`;
     }else if(typeof val === 'string'){

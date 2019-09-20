@@ -56,26 +56,26 @@ client
     
   )
 
-// client.query(`CREATE INDEX room_index ON reviews_join (roomId)`)
-//   .then(res => console.log("index for room id in reviews_join table created"))
-//   .catch((err) => console.log(err))
-//   .then(
-//     client.query(`CREATE INDEX id_index ON reviews_join (id)`)
-//     .then(res => console.log("index for id in reviews_join table created"))
-//     .catch((err) => console.log(err))
-//     .then(
-//       client.query(`ALTER TABLE public.reviews_join ADD FOREIGN KEY(roomID) REFERENCES public.rooms(id);`)
-//       .then(res => console.log("foreign key roomId created"))
-//       .catch((err) => console.log(err))
-//       .then(
-//         client.query(`ALTER TABLE public.reviews_join ADD FOREIGN KEY(custID) REFERENCES public.users(id);`)
-//         .then(res => console.log("foreign key custId created"))
-//         .catch((err) => console.log(err))
-//         .then(
-//           client.query(`DROP TABLE reviewRecords;`)
-//           .then(res => console.log("foreign key custId created"))
-//           .catch((err) => console.log(err))
-//         )
-//       )
-//     )
-//   )
+client.query(`CREATE INDEX room_index ON reviews_join (roomId)`)
+  .then(res => console.log("index for room id in reviews_join table created"))
+  .catch((err) => console.log(err))
+  .then(
+    client.query(`CREATE INDEX id_index ON reviews_join (id)`)
+    .then(res => console.log("index for id in reviews_join table created"))
+    .catch((err) => console.log(err))
+    .then(
+      client.query(`ALTER TABLE public.reviews_join ADD FOREIGN KEY(roomID) REFERENCES public.rooms(id);`)
+      .then(res => console.log("foreign key roomId created"))
+      .catch((err) => console.log(err))
+      .then(
+        client.query(`ALTER TABLE public.reviews_join ADD FOREIGN KEY(custID) REFERENCES public.users(id);`)
+        .then(res => console.log("foreign key custId created"))
+        .catch((err) => console.log(err))
+        .then(
+          client.query(`DROP TABLE reviewRecords;`)
+          .then(res => console.log("foreign key custId created"))
+          .catch((err) => console.log(err))
+        )
+      )
+    )
+  )

@@ -12,18 +12,18 @@ client.connect()
 
 // client
 //   .query(`COPY rooms 
-//     FROM '/home/ec2-user/reviews-module/database/rooms.csv' DELIMITER ',' CSV;`)
+//     FROM '/home/ec2-user/reviews-module/database/rooms.csv' DELIMITER ',';`)
 //   .then(res => console.log("table rooms created!"))
 //   .catch((err) => console.log(err))
 
 // client
 //   .query(`COPY users 
-//     FROM '/home/ec2-user/reviews-module/database/users.csv' DELIMITER ',' CSV;`)
+//     FROM '/home/ec2-user/reviews-module/database/users.csv' DELIMITER ',';`)
 //   .then(res => console.log("table users created!"))
 //   .catch((err) => console.log(err))
 client
   .query(`COPY reviewRecords
-    FROM '/home/ec2-user/reviews-module/database/reviewRecords.csv' DELIMITER ',' CSV;`)
+    FROM '/home/ec2-user/reviews-module/database/reviewRecords.csv' DELIMITER ',';`)
   .then(res => console.log("table reviewRecords created!"))
   .catch((err) => console.log(err))
 // client
@@ -51,7 +51,8 @@ client
 //   INNER JOIN rooms on reviewRecords.roomId =rooms.id;`)
 // .then(res => console.log("joined table created!"))
 // .catch((err) => console.log(err))
-// client.query(`CREATE INDEX room_index ON reviews_join (roomId)`)
+// .then(
+//   client.query(`CREATE INDEX room_index ON reviews_join (roomId)`)
 //   .then(res => console.log("index for room id in reviews_join table created"))
 //   .catch((err) => console.log(err))
 //   .then(
@@ -74,3 +75,4 @@ client
 //       )
 //     )
 //   )
+// )

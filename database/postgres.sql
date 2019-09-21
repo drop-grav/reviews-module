@@ -24,9 +24,5 @@ CREATE TABLE reviewRecords (
   checkinRating smallint,
   valueRating smallint,
   hostDate TIMESTAMP,
-  hostResponse VARCHAR(500),
-  FOREIGN KEY (roomId)
-    REFERENCES rooms(id),
-  FOREIGN KEY (custId)
-    REFERENCES users(id)
+  hostResponse VARCHAR(500)
 );

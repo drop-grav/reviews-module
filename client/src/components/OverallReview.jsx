@@ -18,10 +18,9 @@ class OverallReview extends React.Component {
     let data = this.props.data;
     let rating = 0;
     for (let i = 0; i < data.length; i++) {
-      rating += data[i].overallRating;
+      rating += data[i].overallrating;
     }
     let average = rating / data.length;
-
     this.setState({
       total: data.length,
       rating: Number(Math.round(parseFloat(average + 'e' + 2)) + 'e-' + 2).toFixed(2)

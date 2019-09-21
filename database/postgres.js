@@ -21,36 +21,36 @@ client.connect()
 //     FROM '/home/ec2-user/reviews-module/database/users.csv' DELIMITER ',';`)
 //   .then(res => console.log("table users created!"))
 //   .catch((err) => console.log(err))
-client
-  .query(`COPY reviewRecords
-    FROM '/home/ec2-user/reviews-module/database/reviewRecords.csv' DELIMITER ',';`)
-  .then(res => console.log("table reviewRecords created!"))
-  .catch((err) => console.log(err))
 // client
-// .query(`CREATE TABLE reviews_join 
-//   AS SELECT 
-//   reviewRecords.id,
-//   reviewRecords.roomId,
-//   reviewRecords.custId,
-//   users.custName,
-//   reviewRecords.custDate,
-//   users.custUrl,
-//   reviewRecords.custReview,
-//   reviewRecords.overallRating,
-//   reviewRecords.accuracyRating,
-//   reviewRecords.commRating,
-//   reviewRecords.cleanRating,
-//   reviewRecords.locationRating,
-//   reviewRecords.checkinRating,
-//   reviewRecords.valueRating,
-//   rooms.hostName,
-//   reviewRecords.hostDate,
-//   rooms.hostUrl,
-//   reviewRecords.hostResponse 
-//   FROM reviewRecords INNER JOIN users on reviewRecords.custId = users.id 
-//   INNER JOIN rooms on reviewRecords.roomId =rooms.id;`)
-// .then(res => console.log("joined table created!"))
-// .catch((err) => console.log(err))
+//   .query(`COPY reviewRecords
+//     FROM '/home/ec2-user/reviews-module/database/reviewRecords.csv' DELIMITER ',';`)
+//   .then(res => console.log("table reviewRecords created!"))
+//   .catch((err) => console.log(err))
+client
+.query(`CREATE TABLE reviews_join 
+  AS SELECT 
+  reviewRecords.id,
+  reviewRecords.roomId,
+  reviewRecords.custId,
+  users.custName,
+  reviewRecords.custDate,
+  users.custUrl,
+  reviewRecords.custReview,
+  reviewRecords.overallRating,
+  reviewRecords.accuracyRating,
+  reviewRecords.commRating,
+  reviewRecords.cleanRating,
+  reviewRecords.locationRating,
+  reviewRecords.checkinRating,
+  reviewRecords.valueRating,
+  rooms.hostName,
+  reviewRecords.hostDate,
+  rooms.hostUrl,
+  reviewRecords.hostResponse 
+  FROM reviewRecords INNER JOIN users on reviewRecords.custId = users.id 
+  INNER JOIN rooms on reviewRecords.roomId =rooms.id;`)
+.then(res => console.log("joined table created!"))
+.catch((err) => console.log(err))
 // .then(
 //   client.query(`CREATE INDEX room_index ON reviews_join (roomId)`)
 //   .then(res => console.log("index for room id in reviews_join table created"))

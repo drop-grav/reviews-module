@@ -19,37 +19,49 @@ class App extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGoBack = this.handleGoBack.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
 
   componentDidMount() {
-// GET request to retrieve reviews data
+    // GET request to retrieve reviews data
+    const path = window.location.pathname.slice(1, -1);
+    if (path) {
+      this.refresh(path)
+    } else {
+      this.refresh(1)
+    }
+  }
+
+  refresh(path) {
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/api/rooms/1/reviews',
+      url: `http://localhost:3000/api/rooms/${path}/reviews`,
       dataType: 'json',
       success: (data) => {
         this.setState({
           entry: data,
           filtered: data
+        }, () => {
+          console.log('success');
+          console.log(this.state.entry);
         })
-        console.log('success');
       },
       error: (err) => {
-        console.log('error')
+        console.log(err)
       }
     });
-  };
+  }
 
   handleSubmit(e) {
     e.preventDefault();
     console.log(search);
-    let search = this.state.entry.filter(function(review) {
+    let search = this.state.entry.filter(function (review) {
       return review.custReview.toLowerCase().includes($('#searchTerm').val().toLowerCase());
     });
-      this.setState({
-        filtered: search,
-        searchTerm: $('#searchTerm').val()
-      })
+    this.setState({
+      filtered: search,
+      searchTerm: $('#searchTerm').val()
+    })
   }
 
   handleGoBack() {
@@ -61,10 +73,10 @@ class App extends React.Component {
 
   render() {
     if (this.state.filtered.length === 0 && this.state.searchTerm !== '') {
-      return(
+      return (
         <div className={styles.component}>
           <div className={styles.overallAndSearch}>
-            <ReviewSearch handleSubmit={this.handleSubmit}/>
+            <ReviewSearch handleSubmit={this.handleSubmit} />
             <OverallReview data={this.state.entry} />
           </div>
           <div className={styles.searchResult}>
@@ -74,10 +86,10 @@ class App extends React.Component {
         </div>
       )
     } else if (this.state.filtered.length === 1 && this.state.searchTerm !== '') {
-      return(
+      return (
         <div className={styles.component}>
           <div className={styles.overallAndSearch}>
-            <ReviewSearch handleSubmit={this.handleSubmit}/>
+            <ReviewSearch handleSubmit={this.handleSubmit} />
             <OverallReview data={this.state.entry} />
           </div>
           <div className={styles.searchResult}>
@@ -90,10 +102,10 @@ class App extends React.Component {
         </div>
       )
     } else if (this.state.filtered.length > 1 && this.state.searchTerm !== '') {
-      return(
+      return (
         <div className={styles.component}>
           <div className={styles.overallAndSearch}>
-            <ReviewSearch handleSubmit={this.handleSubmit}/>
+            <ReviewSearch handleSubmit={this.handleSubmit} />
             <OverallReview data={this.state.entry} />
           </div>
           <div className={styles.searchResult}>
@@ -106,10 +118,10 @@ class App extends React.Component {
         </div>
       )
     } else {
-      return(
+      return (
         <div className={styles.component}>
           <div className={styles.overallAndSearch}>
-            <ReviewSearch handleSubmit={this.handleSubmit}/>
+            <ReviewSearch handleSubmit={this.handleSubmit} />
             <OverallReview data={this.state.entry} />
           </div>
           <div>

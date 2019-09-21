@@ -72,7 +72,7 @@ client
             .catch((err) => console.log(err))
             .then(
               client.query(`DROP TABLE reviewRecords;`)
-              .then(res => console.log("foreign key custId created"))
+              .then(res => console.log("table reviewRecorded deleted"))
               .catch((err) => console.log(err))
             )
           )

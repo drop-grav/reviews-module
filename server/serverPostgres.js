@@ -1,4 +1,5 @@
 const newRelic = require('newrelic');
+const cors = require('cors');
 const express = require('express');
 const app = express();
 const _ = require('underscore');
@@ -12,6 +13,7 @@ const pool = new Pool({
   database: "reviews"
 })
 const bodyParser = require('body-parser');
+app.use(cors());
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

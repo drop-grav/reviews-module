@@ -35,7 +35,7 @@ class App extends React.Component {
   refresh(path) {
     $.ajax({
       type: 'GET',
-      url: `http://localhost:3000/api/rooms/${path}/reviews`,
+      url: `http://ec2-52-53-211-174.us-west-1.compute.amazonaws.com:3000/api/rooms/${path}/reviews`,
       dataType: 'json',
       success: (data) => {
         this.setState({

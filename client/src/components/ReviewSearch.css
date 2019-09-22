@@ -1,0 +1,21 @@
+.search {
+  border: 1px solid rgb(235,235,235);
+  width: 250px;
+  height: 25px;
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+  float: right;
+  display: flex;
+  align-self: center;
+  flex-direction: row-reverse;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.searchForm {
+  display: flex;
+  box-sizing: border-box;
+  float: right;
+  border: none;
+  margin-right: auto;
+  width: 250px;
+}

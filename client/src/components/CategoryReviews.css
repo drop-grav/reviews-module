@@ -1,0 +1,14 @@
+.table {
+  width: 100%;
+}
+
+.category {
+  color: rgb(72,72,72);
+  font-family: Circular,Roboto,Helvetica Neue,sans-serif;
+  font-size: 16px;
+}
+
+.rating {
+  float: right;
+  margin-right: 10px;
+}

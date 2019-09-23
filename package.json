@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build:dev": "webpack -d --watch",
+    "start": "forever start server/serverPostgres.js",
     "start:postgres": "nodemon server/serverPostgres.js",
     "start:cassandra": "nodemon server/serverCassandra.js",
     "seed:postgres": "node database/generatePostgresData.js",

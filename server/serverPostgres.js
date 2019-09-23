@@ -3,7 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 const _ = require('underscore');
-const PORT = 3000;
+const PORT = 80;
 const {Pool} = require('pg');
 const pool = new Pool({
   user: "postgres",

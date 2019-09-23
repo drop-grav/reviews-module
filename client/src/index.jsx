@@ -41,9 +41,6 @@ class App extends React.Component {
         this.setState({
           entry: data,
           filtered: data
-        }, () => {
-          console.log('success');
-          console.log(this.state.entry);
         })
       },
       error: (err) => {

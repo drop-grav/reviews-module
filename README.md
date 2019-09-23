@@ -13,6 +13,7 @@ Reviews module
 
 ## Usage
 > First use postgres shell to load postgres.sql
+> npm install forever -g
 > npm run seed:postgres
 > npm run postgres
 > npm run seed:cassandra

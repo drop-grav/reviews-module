@@ -24,9 +24,9 @@ class App extends React.Component {
 
   componentDidMount() {
     // GET request to retrieve reviews data
-    const pathArr = window.location.pathname.split('/');
+    const pathArr = window.location.pathname.slice(1, -1).split('/');
     const path = pathArr[pathArr.length - 1];
-    if (path) {
+    if (parseInt(path) == path) {
       this.refresh(path)
     } else {
       this.refresh(1)

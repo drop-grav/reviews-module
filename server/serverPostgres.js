@@ -23,7 +23,7 @@ pool.connect()
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
-app.use('/:id', express.static(__dirname + '/../client/dist'));
+app.use('listing/:id', express.static(__dirname + '/../client/dist'));
 app.get('/api/rooms/:roomId/reviews', (req, res) => {
   pool.query(`SELECT * FROM reviews_join WHERE roomId = ${req.params.roomId}`, (err, resData) =>{
     if (err){

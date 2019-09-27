@@ -15,7 +15,7 @@ const pool1 = new Pool({
 const pool2 = new Pool({
   user: "postgres",
   password: "postgres",
-  host: '54.215.248.247',
+  host: '13.57.224.21',
   port: 5432,
   database: "reviews"
 })

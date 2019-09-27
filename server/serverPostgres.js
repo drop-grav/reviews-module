@@ -5,10 +5,17 @@ const app = express();
 const _ = require('underscore');
 const PORT = 3000;
 const {Pool} = require('pg');
-const pool = new Pool({
+const pool1 = new Pool({
   user: "postgres",
   password: "postgres",
   host: "localhost",
+  port: 5432,
+  database: "reviews"
+})
+const pool2 = new Pool({
+  user: "postgres",
+  password: "postgres",
+  host: '54.215.248.247',
   port: 5432,
   database: "reviews"
 })
@@ -17,8 +24,11 @@ app.use(cors());
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
-pool.connect()
-.then(res => console.log('Connected to Postgres!'))
+pool1.connect()
+.then(res => console.log('Connected to slave!'))
+.catch(err => console.log(err));
+pool2.connect()
+.then(res => console.log('Connected to master!'))
 .catch(err => console.log(err));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -26,7 +36,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use('/listing/', express.static(__dirname + '/../client/dist'));
 app.use('/listing/:id', express.static(__dirname + '/../client/dist'));
 app.get('/api/rooms/:roomId/reviews', (req, res) => {
-  pool.query(`SELECT * FROM reviews_join WHERE roomId = ${req.params.roomId}`, (err, resData) =>{
+  pool1.query(`SELECT * FROM reviews_join WHERE roomId = ${req.params.roomId}`, (err, resData) =>{
     if (err){
       console.log(err);
     }else{
@@ -43,7 +53,7 @@ app.post('/api/rooms/:roomId/reviews', (req, res) => {
       return `'${val}'`;
     }
   }).join(',');
-  pool.query(`INSERT INTO reviews_join VALUES(${dataToAdd})`, (err, result) =>{
+  pool2.query(`INSERT INTO reviews_join VALUES(${dataToAdd})`, (err, result) =>{
     if (err){
       console.log(err);
       res.status(400).send(err);
@@ -63,7 +73,7 @@ app.put('/api/rooms/:roomId/reviews/:reviewId', (req, res) => {
       return `${arr[0]}='${arr[1]}'`
     }
   }).join(',');
-  pool.query(`UPDATE reviews_join SET ${queryText} 
+  pool2.query(`UPDATE reviews_join SET ${queryText} 
   WHERE uid = '${req.params.reviewId}';
   `, (err, result)=>{
     if (err){
@@ -75,7 +85,7 @@ app.put('/api/rooms/:roomId/reviews/:reviewId', (req, res) => {
 });
 
 app.delete('/api/rooms/:roomId/reviews/:reviewId', (req, res) => {
-  pool.query(`DELETE FROM reviews_join WHERE uid = '${req.params.reviewId}'`, (err, result)=>{
+  pool2.query(`DELETE FROM reviews_join WHERE uid = '${req.params.reviewId}'`, (err, result)=>{
     if (err){
       res.status(400).send(err);
     }else{

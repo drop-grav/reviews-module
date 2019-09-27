@@ -19,10 +19,7 @@ app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 pool.connect()
-.then(res => console.log('Connected to slave!'))
-.catch(err => console.log(err));
-pool.connect()
-.then(res => console.log('Connected to master!'))
+.then(res => console.log('Connected to database'))
 .catch(err => console.log(err));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

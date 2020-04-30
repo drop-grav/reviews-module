@@ -27,7 +27,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsdom": "^15.1.1",
     "newrelic": "^5.11.0",
     "nodemon": "^1.19.1",

@@ -51,6 +51,6 @@
     "react-css-modules": "^4.7.11",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.12"
   }
 }
